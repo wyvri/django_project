@@ -14,3 +14,13 @@
 
 - cd into the project folder that contains manage.py
 - run `python manage.py runserver`
+
+## Step 4: Build the Database
+
+- cd into the project folder that contains manage.py
+- run `python manage.py migrate`
+
+## Step 5: Create Super User
+
+- cd into the project folder that contains manage.py
+- run `python manage.py createsuperuser`
