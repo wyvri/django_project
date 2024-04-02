@@ -1,2 +1,6 @@
 # django_project
-lets learn django!
+
+## Step 1: Create A Project
+
+Python 3.9
+-> python -m django startproject [project name here]
