@@ -8,3 +8,10 @@ def base(request):
     }
 
     return render(request, 'base.html', context)
+
+def home(request):
+    context={
+
+    }
+
+    return render(request, 'home.html', context)
