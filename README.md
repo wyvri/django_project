@@ -34,3 +34,18 @@
    ` 'app_name',`
 
 `]`
+
+## Step 7: Add template folder to settings.py Templates
+
+`'DIRS': [BASE_DIR / 'templates'],`
+
+## View Function
+```python
+def base(request):
+
+   context={
+
+    }
+
+    return render(request, 'base.html', context)
+```
