@@ -1,3 +1,6 @@
+{% load static %}
+
+{% include 'base.html' %}
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
@@ -5,32 +8,10 @@
             home!
         </title>
         <style>
-            h1 {
-                color:rgb(74, 42, 255);
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                text-align: center;
-                font-size: 150px;
-            }
-
-            p {
-                color: rgb(245, 2, 237);
-                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                font-size: 25px;
-                padding: 10px;
-            }
-
-            .top {
-                background-color: rgb(197, 248, 255);
-                padding: 5px;
-            }
-
-            body {
-                margin: 0px;
-            }
-
         </style>
     </head>
     <body>
+{% block content %}
         <div class="top">
             <h1>
                 Home!
@@ -39,5 +20,6 @@
         <p>
             home page :3
         </p>
+{% endblock %}
     </body>
 </html>

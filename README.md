@@ -27,17 +27,21 @@
 
 ## Step 6: Add App to settings.py Install App Dictionary
 
-`INSTALLED_APPS = [`
+```python
+INSTALLED_APPS = [
 
-`...`
+...
 
-   ` 'app_name',`
+    'app_name',
 
-`]`
+]
+```
 
 ## Step 7: Add template folder to settings.py Templates
 
-`'DIRS': [BASE_DIR / 'templates'],`
+```python
+'DIRS': [BASE_DIR / 'templates'],
+```
 
 ## View Function
 ```python
@@ -51,6 +55,7 @@ def base(request):
 ```
 
 ## Step 8: Add app url.py to project url.py
+
 ```python
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -59,6 +64,7 @@ urlpatterns = [
 ```
 
 ## Step 9: Add app urls.py to app folder
+
 ```python
 from django.urls import path, include
 from . import views
@@ -66,4 +72,20 @@ from . import views
 urlpatterns = [
     path('base/', views.base, name='base'),
 ]
+```
+
+## Inheriting Code from a Template:
+
+### In base.html
+```python
+{% block content %}
+
+{% endblock %}
+```
+
+### In template
+```python
+{% load static %}
+
+{% include 'base.html'%}
 ```
