@@ -85,7 +85,13 @@ urlpatterns = [
 
 ### In template
 ```python
-{% load static %}
-
-{% include 'base.html'%}
+{% extends 'base.html'%}
 ```
+## Making Changes to the Database
+
+### 1: Saving Changes
+`python manage.py makemigrations`
+
+### 2: Build Changes into Database
+`python manage.py migrate`
+
