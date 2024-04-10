@@ -12,7 +12,15 @@ def base(request):
 
 def home(request):
     context={
-        'students':Student.objects.all()
+
     }
 
     return render(request, 'home.html', context)
+
+def students(request):
+    students = Student.objects.all()
+    context={
+        'students':students,
+    }
+
+    return render(request, 'students.html', context)

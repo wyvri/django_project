@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="top">
+    <h1>Students</h1>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Grade</th>
+    </thead>
+
+    {% for i in students %}
+        <tr>
+            <td>{{ i.lastname }}</td>
+            <td>{{ i.firstname }}</td>
+            <td>{{ i.middlename }}</td>
+            <td>{{ i.grade }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

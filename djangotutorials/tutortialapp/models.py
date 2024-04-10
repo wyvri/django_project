@@ -16,4 +16,4 @@ class Student(models.Model):
     grade = models.CharField(max_length=200,null=True, choices=GRADES)
 
     def __str__(self) -> str:
-        return f"{self.lastname}, {self.firstname}, {self.middlename}, {self.grade}"
+        return f"{self.lastname}, {self.firstname}"
