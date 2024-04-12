@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Student
+from .models import *
 
 # Create your views here.
 
@@ -24,3 +24,11 @@ def students(request):
     }
 
     return render(request, 'students.html', context)
+
+def teachers(request):
+    teachers = Teacher.objects.all()
+    context={
+        'teachers':teachers,
+    }
+
+    return render(request, 'teachers.html', context)

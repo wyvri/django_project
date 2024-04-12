@@ -17,3 +17,23 @@ class Student(models.Model):
 
     def __str__(self) -> str:
         return f"{self.lastname}, {self.firstname}"
+
+class Teacher(models.Model):
+
+    SUBJECTS = (
+        ('ELA', 'ELA'),
+        ('Social Studies', 'Social Studies'),
+        ('Math', 'Math'),
+        ('Science', 'Science'),
+        ('Foreign Language', 'Foreign Language'),
+        ('Business', 'Business'),
+        ('PE', 'PE'),
+    )
+
+    firstname = models.CharField(max_length=200,null=True)
+    lastname = models.CharField(max_length=200,null=True)
+    subject = models.CharField(max_length=200,null=True, choices=SUBJECTS)
+    roomnum = models.IntegerField()
+
+    def __str__(self) -> str:
+        return f"{self.lastname}, {self.firstname}"
