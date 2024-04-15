@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .form {
+            margin: 100px;
+            width: 600px;
+        }
+    </style>
+    <div class = form>
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                {{form.as_p}} 
+            </div>
+        </div>
+    </div>
+{% endblock %}
