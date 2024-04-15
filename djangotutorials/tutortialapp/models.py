@@ -10,10 +10,10 @@ class Student(models.Model):
         ('12', '12'),
     )
 
-    firstname = models.CharField(max_length=200,null=True)
-    lastname = models.CharField(max_length=200,null=True)
-    middlename = models.CharField(max_length=200,null=True)
-    grade = models.CharField(max_length=200,null=True, choices=GRADES)
+    firstname = models.CharField(max_length=200,null=True, verbose_name="First Name")
+    lastname = models.CharField(max_length=200,null=True, verbose_name="Last Name")
+    middlename = models.CharField(max_length=200,null=True, verbose_name="Middle Name(s)")
+    grade = models.CharField(max_length=200,null=True, choices=GRADES, verbose_name="Grade")
 
     def __str__(self) -> str:
         return f"{self.lastname}, {self.firstname}"
@@ -30,10 +30,10 @@ class Teacher(models.Model):
         ('PE', 'PE'),
     )
 
-    firstname = models.CharField(max_length=200,null=True)
-    lastname = models.CharField(max_length=200,null=True)
-    subject = models.CharField(max_length=200,null=True, choices=SUBJECTS)
-    roomnum = models.IntegerField()
+    firstname = models.CharField(max_length=200,null=True, verbose_name="First Name")
+    lastname = models.CharField(max_length=200,null=True, verbose_name="Last Name")
+    subject = models.CharField(max_length=200,null=True, choices=SUBJECTS, verbose_name="Subject")
+    roomnum = models.IntegerField(verbose_name="Room Number")
 
     def __str__(self) -> str:
         return f"{self.lastname}, {self.firstname}"
