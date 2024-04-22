@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+from django.contrib import messages
 
 # Create your views here.
 
@@ -56,6 +57,10 @@ def studentform(request):
         grade = form.cleaned_data['grade']
 
         requests.save() # save to the database
+
+        #confirmation message
+        messages.success(request, "New student added successfully.")
+
     else: # show a blank form
         form = StudentForm()
     
@@ -83,6 +88,10 @@ def teacherform(request):
         roomnum = form.cleaned_data['roomnum']
 
         requests.save() # save to the database
+        
+        #confirmation message
+        messages.success(request, "New teacher added successfully.")
+
     else: # show a blank form
         form = TeacherForm()
     
