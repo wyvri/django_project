@@ -12,11 +12,9 @@
     #card-things-1 {
         margin: 50px;
         padding: 50px;
-    }
-
-    #card-things-2 {
-        margin: 50px;
-        padding: 50px;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-evenly;
     }
 
     .col {
@@ -65,8 +63,6 @@
                     <a href="{% url 'teachers' %}"><button type="button" class="w-100 btn btn-lg btn-primary">Click Here</button></a>
                   </div>
                 </div>
-        </span>
-        <span id="card-things-2">
             <div class="col">
               <div class="card mb-4 rounded-3 shadow-sm border-primary">
                 <div class="card-header py-3 text-bg-primary border-primary">
