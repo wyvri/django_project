@@ -54,13 +54,17 @@
                 flex-grow: 1;
             }
 
+            nav img {
+                height: 50px;
+            }
+
         </style>
     </head>
     <body>
         <div class="go-to-the-bottom">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Base Page</a>
+                <a class="navbar-brand" href="#"><img src="{% static 'cat.png' %}"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -82,10 +86,6 @@
                     <a class="nav-link" href="{% url 'teacherform' %}">Teacher Form</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
                 </div>
             </div>
         </nav>
@@ -99,7 +99,7 @@
               <p class="col-md-4 mb-0 text-body-secondary">&copy; Wyvern LLC</p>
           
               <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img src="./static/cat.png"/>
+                <img src="{% static 'cat.png' %}"/>
               </a>
           
               <ul class="nav col-md-4 justify-content-end">
