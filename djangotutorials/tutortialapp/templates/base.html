@@ -32,15 +32,32 @@
             }
 
             footer {
-                position: fixed;
-                bottom: 0;
-                left: 0;
+                margin-top: auto;
                 width: 100vw;
+            }
+
+            .container {
+                margin-left: 0px;
+            }
+
+            footer img {
+                height: 50px;
+            }
+
+            .go-to-the-bottom {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            .stuff {
+                flex-grow: 1;
             }
 
         </style>
     </head>
     <body>
+        <div class="go-to-the-bottom">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Base Page</a>
@@ -72,19 +89,22 @@
                 </div>
             </div>
         </nav>
+        <div class="stuff">
+        {% block content %}
+          
+        {% endblock %}
+        </div>
         <div class="container">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center border-top">
               <p class="col-md-4 mb-0 text-body-secondary">&copy; Wyvern LLC</p>
           
               <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <img src="./static/cat.png"/>
               </a>
           
               <ul class="nav col-md-4 justify-content-end">
             </footer>
           </div>
-        {% block content %}
-          
-        {% endblock %}
+        </div>
     </body>
 </html>
