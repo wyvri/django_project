@@ -28,7 +28,17 @@
       flex-direction: column;
     }
 
+    .rowification {
+      display: flex;
+      flex-direction: row;
+      text-align: left;
+    }
+
+    .top svg {
+      color: rgb(74, 42, 255);
+    }
     svg {
+      color: rgb(245, 2, 237);
       height: 200px;
       width: 200px;
     }
@@ -40,11 +50,14 @@
     .card-body {
       text-align: center;
     }
+    
   </style>
   <div class="top">
     <h1>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
       </svg>
     </h1>
   </div>
@@ -89,8 +102,8 @@
           <h4 class="my-0 fw-normal">Student Form</h4>
         </div>
         <div class="card-body">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist"
-            viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-card-checklist" viewBox="0 0 16 16">
             <path
               d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
             <path
@@ -105,8 +118,8 @@
           <h4 class="my-0 fw-normal">Teacher Form</h4>
         </div>
         <div class="card-body">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist"
-            viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-card-checklist" viewBox="0 0 16 16">
             <path
               d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
             <path
@@ -121,8 +134,9 @@
       <h4 class="fst-italic">Announcements</h4>
       <ul class="list-unstyled">
         <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <img src="../static/img/elcathasfallen.png">
+          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+            href="#">
+            <img src="img/elcathasfallen.png">
             <div class="col-lg-8">
               <h6 class="mb-0">Local Library Cat Has Been Defeated!</h6>
               <small class="text-body-secondary">January 15, 2024</small>
@@ -130,8 +144,9 @@
           </a>
         </li>
         <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <img src="../static/img/elcat.png">
+          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+            href="#">
+            <img src="img/elcat.png">
             <div class="col-lg-8">
               <h6 class="mb-0">Many Stray Cats Assemble For Group Yoga</h6>
               <small class="text-body-secondary">January 14, 2024</small>
@@ -139,8 +154,9 @@
           </a>
         </li>
         <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <img src="../static/img/manycats.png">
+          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+            href="#">
+            <img src="img/manycats.png">
             <div class="col-lg-8">
               <h6 class="mb-0">Emergency: Local Library Cat Takes Over Small Town!</h6>
               <small class="text-body-secondary">January 13, 2024</small>
@@ -148,6 +164,16 @@
           </a>
         </li>
       </ul>
+    </div>
+    <div class="rowification">
+      <div class="container my-5">
+        <div class="p-5 text bg-body-tertiary rounded-3">
+          <h1>Find The Cat For You!</h1>
+          <p class="lead">
+            Adopt a cat today from Local Pet Agency!
+          </p>
+        </div>
+      </div>
     </div>
   </div>
   {% endblock %}
