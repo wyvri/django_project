@@ -82,7 +82,7 @@
     <div class="go-to-the-bottom">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="{% static 'cat.png' %}"></a>
+                <a class="navbar-brand" href="#"><img src="{% static 'img/cat.png' %}"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -98,7 +98,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'teachers' %}">Teachers</a>
                         </li>
-                        {% if request.user.groups.all.name == 'Teachers' %} <!-- FIX THIS -->
+                        {% if request.user.groups.name == 'Teachers' %} <!-- FIX THIS -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'studentform' %}">Student Form</a>
                             </li>
@@ -116,7 +116,7 @@
                                 <a href="{% url 'login' %}">Log In</a>
                             </li>
                             <li>
-                                <a href="{% url 'registration/signup %}">Sign Up</a>
+                                <a href="{% url 'signup' %}">Sign Up</a>
                             </li>
                             {% endif %}
                         </div>
@@ -135,7 +135,7 @@
 
                 <a href="/"
                     class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                    <img src="{% static 'cat.png' %}" />
+                    <img src="{% static 'img/cat.png' %}" />
                 </a>
 
                 <ul class="nav col-md-4 justify-content-end">

@@ -110,7 +110,7 @@ def signup(request):
         'form': form
     } 
     
-    return render(request, "registration/signup.html", context)
+    return render(request, "signup.html", context)
 
 def login(request):
     context={
