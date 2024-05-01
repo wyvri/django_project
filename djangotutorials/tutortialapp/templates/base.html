@@ -98,7 +98,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'teachers' %}">Teachers</a>
                         </li>
-                        {% if request.user.groups.all.name == 'Teachers' %}
+                        {% if request.user.groups.all.name == 'Teachers' %} <!-- FIX THIS -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'studentform' %}">Student Form</a>
                             </li>
