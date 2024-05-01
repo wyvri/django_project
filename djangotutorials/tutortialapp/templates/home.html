@@ -2,11 +2,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>
-  <title>
-    home!
-  </title>
-</head>
+{% block title %}Home!{% endblock %}
 
 <body>
   {% block content %}
@@ -60,6 +56,9 @@
       <img src="{% static 'img/house.png' %}">
     </h1>
   </div>
+  {% if user.is_authenticated %}
+  <p>Welcome, {{user.username}}</p>
+{% endif %}
   <div class="card-things-1">
     <div class="columnification">
       <div class="card mb-4 rounded-3 shadow-sm border-primary">

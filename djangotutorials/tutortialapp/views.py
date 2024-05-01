@@ -98,19 +98,19 @@ def teacherform(request):
     
     return render(request, 'teacherform.html', {"method": request.method, "form": form})
 
-def register(request):
-    form = UserCreationForm()
+def signup(request):
+    form = CreateUserForm()
 
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
 
-    context={
+    context = {
         'form': form
-    }
-
-    return render(request, 'register.html', context)
+    } 
+    
+    return render(request, "registration/signup.html", context)
 
 def login(request):
     context={
