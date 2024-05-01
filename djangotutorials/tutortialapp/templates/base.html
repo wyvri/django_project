@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_filters %}
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -98,7 +99,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'teachers' %}">Teachers</a>
                         </li>
-                        {% if request.user.groups.name == 'Teachers' %} <!-- FIX THIS -->
+                        {% if request.user|has_group:"Teachers" %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'studentform' %}">Student Form</a>
                             </li>
