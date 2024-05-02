@@ -76,6 +76,19 @@
         .account a:hover {
             color: rgb(167, 167, 167);
         }
+
+        .account button {
+            color: gray;
+            text-decoration: underline;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            outline: none;
+        }
+
+        .account button:hover {
+            color: rgb(167, 167, 167);
+        }
+        
     </style>
 </head>
 
@@ -110,7 +123,10 @@
                         <div class="account">
                             {% if user.is_authenticated %}
                             <li>
-                                <a href="{% url 'logout' %}">Log Out</a>
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Log Out</button>
+                                </form>
                             </li>
                             {% else %}
                             <li>>
