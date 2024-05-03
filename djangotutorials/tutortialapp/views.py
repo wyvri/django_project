@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import User
 
-from templatetags.custom_filters import *
+from tutortialapp.templatetags.custom_filters import *
 
 # Create your views here.
 
