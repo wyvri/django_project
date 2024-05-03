@@ -3,6 +3,9 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import User
+
+from templatetags.custom_filters import *
 
 # Create your views here.
 
@@ -104,7 +107,9 @@ def signup(request):
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            group = Group.objects.get(name='Students')
+            user.groups.add(group)
 
     context = {
         'form': form
