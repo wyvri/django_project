@@ -125,3 +125,10 @@ def login(request):
     }
 
     return render(request, 'login.html', context)
+
+def profile(request):
+    context = {
+
+    }
+
+    return render(request, 'profile.html', context)
