@@ -120,6 +120,7 @@ def signup(request):
     return render(request, "signup.html", context)
 
 def login(request):
+
     context={
 
     }
@@ -127,8 +128,15 @@ def login(request):
     return render(request, 'login.html', context)
 
 def profile(request):
-    context = {
+    form = ProfileForm()
 
+    if request.method == "POST":
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {
+        'form': form
     }
 
     return render(request, 'profile.html', context)
