@@ -8,6 +8,8 @@
   {% block content %}
 
   {% load static %}
+
+  {% load custom_filters %}
   <style>
     .card-things-1 {
       margin: 50px;
@@ -49,7 +51,6 @@
     .card-body {
       text-align: center;
     }
-    
   </style>
   <div class="top">
     <h1>
@@ -58,7 +59,7 @@
   </div>
   {% if user.is_authenticated %}
   <p>Welcome, {{user.username}}</p>
-{% endif %}
+  {% endif %}
   <div class="card-things-1">
     <div class="columnification">
       <div class="card mb-4 rounded-3 shadow-sm border-primary">
@@ -94,6 +95,7 @@
         </div>
       </div>
     </div>
+    {% if request.user|has_group:"Teachers" %}
     <div class="columnification">
       <div class="card mb-4 rounded-3 shadow-sm border-primary">
         <div class="card-header py-3 text-bg-primary border-primary">
@@ -128,40 +130,43 @@
         </div>
       </div>
     </div>
-    <div>
-      <h4 class="fst-italic">Announcements</h4>
-      <ul class="list-unstyled">
-        <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-            href="#">
-            <img src="{% static 'img/elcathasfallen.png' %}">
-            <div class="col-lg-8">
-              <h6 class="mb-0">Local Library Cat Has Been Defeated!</h6>
-              <small class="text-body-secondary">January 15, 2024</small>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-            href="#">
-            <img src="{% static 'img/elcat.png' %}">
-            <div class="col-lg-8">
-              <h6 class="mb-0">Many Stray Cats Assemble For Group Yoga</h6>
-              <small class="text-body-secondary">January 14, 2024</small>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-            href="#">
-            <img src="{% static 'img/manycats.png' %}">
-            <div class="col-lg-8">
-              <h6 class="mb-0">Emergency: Local Library Cat Takes Over Small Town!</h6>
-              <small class="text-body-secondary">January 13, 2024</small>
-            </div>
-          </a>
-        </li>
-      </ul>
+    {% endif %}
+    <div class="columnification">
+      <div>
+        <h4 class="fst-italic">Announcements</h4>
+        <ul class="list-unstyled">
+          <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+              href="#">
+              <img src="{% static 'img/elcathasfallen.png' %}">
+              <div class="col-lg-8">
+                <h6 class="mb-0">Local Library Cat Has Been Defeated!</h6>
+                <small class="text-body-secondary">January 15, 2024</small>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+              href="#">
+              <img src="{% static 'img/elcat.png' %}">
+              <div class="col-lg-8">
+                <h6 class="mb-0">Many Stray Cats Assemble For Group Yoga</h6>
+                <small class="text-body-secondary">January 14, 2024</small>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+              href="#">
+              <img src="{% static 'img/manycats.png' %}">
+              <div class="col-lg-8">
+                <h6 class="mb-0">Emergency: Local Library Cat Takes Over Small Town!</h6>
+                <small class="text-body-secondary">January 13, 2024</small>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="rowification">
       <div class="container my-5">

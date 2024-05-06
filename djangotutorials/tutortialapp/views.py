@@ -4,6 +4,7 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import User
+from django.shortcuts import redirect
 
 from tutortialapp.templatetags.custom_filters import *
 
@@ -110,6 +111,7 @@ def signup(request):
             user = form.save()
             group = Group.objects.get(name='Students')
             user.groups.add(group)
+            return redirect('home')
 
     context = {
         'form': form
