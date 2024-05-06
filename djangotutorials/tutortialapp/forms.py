@@ -14,7 +14,7 @@ class TeacherForm(forms.ModelForm):
         model = Teacher
         fields = ['firstname', 'lastname', 'subject', 'roomnum']
 
-class CreateUserForm(UserCreationForm, StudentForm):
+class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
