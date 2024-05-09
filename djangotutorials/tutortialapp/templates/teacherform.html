@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load custom_filters %}
+{% if user.is_authenticated %}
+{% if request.user|has_group:"Teachers" %}
     <style>
         .form {
             margin: 100px;
@@ -41,4 +44,11 @@
             </div>
         </div>
     </form>
+{% endif %}
+{% else %}
+
+<p>Please log in.</p>
+<a href="{% url 'login' %}">Log in here</a>
+
+{% endif %}
 {% endblock %}
