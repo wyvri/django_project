@@ -128,15 +128,12 @@ def login(request):
     return render(request, 'login.html', context)
 
 def profile(request):
-    form = ProfileForm()
-
-    if request.method == "POST":
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
+    studentAccount = Student.objects.filter(firstname=request.user.first_name, lastname=request.user.last_name)
+    teacherAccount = Teacher.objects.filter(firstname=request.user.first_name, lastname=request.user.last_name)
 
     context = {
-        'form': form
+        'studentAccount': studentAccount,
+        'teacherAccount': teacherAccount,
     }
 
     return render(request, 'profile.html', context)

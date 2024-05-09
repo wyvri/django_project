@@ -1,28 +1,103 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-    .form {
-        margin: 100px;
-        width: 600px;
-    }
-</style>
+
+{% load custom_filters %}
+
+{% if user.is_authenticated %}
 <div class="top">
     <h1>Profile</h1>
 </div>
 
-<form method="POST" action="">
-    <div class="form"> 
-        <div class="card">
-            <div class="card-body">
-    {% csrf_token %}
-    
-    {{ form.as_p }}
+{% if request.user|has_group:"Students" %}
+<h2>Student Data</h2>
+<table>
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Date Joined
+        </th>
+        <th>
+            Groups
+        </th>
+    </tr>
+    <tr>
+        {% for i in studentAccount %}
+        <td>
+            {{i.firstname}}
+        </td>
+        <td>
+            {{ i.lastname }}
+        </td>
+        <td>
+            {{ user.username }}
+        </td>
+        <td>
+            {{ user.email }}
+        </td>
+        {% endfor %}
+    </tr>
+</table>
+{% endif %}
 
-    <button type="submit" class="btn btn-primary" value="Submit" id="submitbutton">Update</button>
-            </div>
-        </div>
-    </div>
-</form>
+{% if request.user|has_group:"Teachers" %}
+<h2>Teacher Data</h2>
+<table>
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Date Joined
+        </th>
+        <th>
+            Groups
+        </th>
+    </tr>
+    <tr>
+        {% for i in teacherAccount %}
+        <td>
+            {{ i.firstname }}
+        </td>
+        <td>
+            {{ i.lastname }}
+        </td>
+        <td>
+            {{ user.username }}
+        </td>
+        <td>
+            {{ user.email }}
+        </td>
+        {% endfor %}
+    </tr>
+</table>
+{% endif %}
+
+{% else %}
+
+<p>Please log in.</p>
+<a href="{% url 'login' %}">Log in here</a>
+
+{% endif %}
 
 {% endblock %}
