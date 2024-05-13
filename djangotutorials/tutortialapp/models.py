@@ -38,11 +38,3 @@ class Teacher(models.Model):
 
     def __str__(self) -> str:
         return f"{self.last_name}, {self.first_name}"
-
-class Profile(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    firstname = models.CharField(max_length=200,null=True, verbose_name="First Name")
-    lastname = models.CharField(max_length=200,null=True, verbose_name="Last Name")
-
-    def __str__(self) -> str:
-        return f"{self.lastname}, {self.firstname}"
