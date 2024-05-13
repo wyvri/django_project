@@ -128,9 +128,16 @@ def login(request):
     return render(request, 'login.html', context)
 
 def profile(request):
+    form = ProfileForm
+
+    if request.method == "POST":
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
 
     context = {
-        'groups': request.user.groups.all()
+        'groups': request.user.groups.all(),
+        'form': form,
     }
 
     return render(request, 'profile.html', context)

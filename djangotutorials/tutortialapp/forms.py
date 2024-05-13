@@ -18,3 +18,8 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+class ProfileForm(CreateUserForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_image']

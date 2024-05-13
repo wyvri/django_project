@@ -38,3 +38,10 @@ class Teacher(models.Model):
 
     def __str__(self) -> str:
         return f"{self.last_name}, {self.first_name}"
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    profile_image = models.ImageField(default="cat.png", null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user.username}"
