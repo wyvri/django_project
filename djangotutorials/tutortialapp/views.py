@@ -56,10 +56,10 @@ def studentform(request):
         requests = form.save(commit=False) # save data locally but not to the database yet
 
         # save each field to a local variable
-        firstname = form.cleaned_data['firstname']
-        lastname = form.cleaned_data['lastname']
-        middlename = form.cleaned_data['middlename']
-        grade = form.cleaned_data['grade']
+  #      firstname = form.cleaned_data['firstname']
+    #    lastname = form.cleaned_data['lastname']
+       # middlename = form.cleaned_data['middlename']
+      #  grade = form.cleaned_data['grade']
 
         requests.save() # save to the database
 
@@ -128,12 +128,13 @@ def login(request):
     return render(request, 'login.html', context)
 
 def profile(request):
-    studentAccount = Student.objects.filter(firstname=request.user.first_name, lastname=request.user.last_name)
-    teacherAccount = Teacher.objects.filter(firstname=request.user.first_name, lastname=request.user.last_name)
+    studentAccount = Student.objects.filter(first_name=request.user.first_name, last_name=request.user.last_name)
+    teacherAccount = Teacher.objects.filter(first_name=request.user.first_name, last_name=request.user.last_name)
 
     context = {
         'studentAccount': studentAccount,
         'teacherAccount': teacherAccount,
+        'groups': request.user.groups.all()
     }
 
     return render(request, 'profile.html', context)

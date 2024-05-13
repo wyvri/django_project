@@ -9,9 +9,7 @@
     <h1>Profile</h1>
 </div>
 
-{% if request.user|has_group:"Students" %}
-<h2>Student Data</h2>
-<table>
+<table class="table table-striped">
     <tr>
         <th>
             First Name
@@ -26,19 +24,18 @@
             Email
         </th>
         <th>
-            Date Joined
+            Last Login
         </th>
         <th>
             Groups
         </th>
     </tr>
     <tr>
-        {% for i in studentAccount %}
         <td>
-            {{i.firstname}}
+            {{ user.first_name }}
         </td>
         <td>
-            {{ i.lastname }}
+            {{ user.last_name }}
         </td>
         <td>
             {{ user.username }}
@@ -46,52 +43,16 @@
         <td>
             {{ user.email }}
         </td>
-        {% endfor %}
+        <td>
+            {{ user.last_login }}
+        </td>
+        <td>
+            {% for group in groups %}
+            {{ group.name }}
+            {% endfor %}
+        </td>
     </tr>
 </table>
-{% endif %}
-
-{% if request.user|has_group:"Teachers" %}
-<h2>Teacher Data</h2>
-<table>
-    <tr>
-        <th>
-            First Name
-        </th>
-        <th>
-            Last Name
-        </th>
-        <th>
-            Username
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            Date Joined
-        </th>
-        <th>
-            Groups
-        </th>
-    </tr>
-    <tr>
-        {% for i in teacherAccount %}
-        <td>
-            {{ i.firstname }}
-        </td>
-        <td>
-            {{ i.lastname }}
-        </td>
-        <td>
-            {{ user.username }}
-        </td>
-        <td>
-            {{ user.email }}
-        </td>
-        {% endfor %}
-    </tr>
-</table>
-{% endif %}
 
 {% else %}
 

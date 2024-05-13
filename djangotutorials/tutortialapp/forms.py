@@ -7,12 +7,12 @@ from django.contrib.auth.models import User
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['firstname', 'lastname', 'middlename', 'grade']
+        fields = ['first_name', 'last_name', 'middle_name', 'grade']
 
 class TeacherForm(forms.ModelForm):
     class Meta:
         model = Teacher
-        fields = ['firstname', 'lastname', 'subject', 'roomnum']
+        fields = ['first_name', 'last_name', 'subject', 'roomnum']
 
 class CreateUserForm(UserCreationForm):
     class Meta:
