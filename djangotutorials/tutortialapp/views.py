@@ -128,12 +128,8 @@ def login(request):
     return render(request, 'login.html', context)
 
 def profile(request):
-    studentAccount = Student.objects.filter(first_name=request.user.first_name, last_name=request.user.last_name)
-    teacherAccount = Teacher.objects.filter(first_name=request.user.first_name, last_name=request.user.last_name)
 
     context = {
-        'studentAccount': studentAccount,
-        'teacherAccount': teacherAccount,
         'groups': request.user.groups.all()
     }
 
