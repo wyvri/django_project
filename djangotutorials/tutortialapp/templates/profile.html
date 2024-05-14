@@ -5,10 +5,23 @@
 {% load custom_filters %}
 
 {% if user.is_authenticated %}
+<style>
+    .profile-picture {
+        width: 150px;
+        margin: 10px;
+    }
+</style>
 <div class="top">
     <h1>Profile</h1>
 </div>
-<img class="profile-picture" src="{{}}">
+<img class="profile-picture" src="{{ request.user.profile.profile_image.url }}">
+<form method="post" action="" enctype="multipart/form-data" id="profileform">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary" value="Submit" id="submitbutton">
+        Submit Image
+    </button>
+</form>
 <table class="table table-striped">
     <tr>
         <th>

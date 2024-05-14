@@ -128,10 +128,11 @@ def login(request):
     return render(request, 'login.html', context)
 
 def profile(request):
-    form = ProfileForm
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
 
     if request.method == "POST":
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
 
