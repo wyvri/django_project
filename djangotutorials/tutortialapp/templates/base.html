@@ -88,7 +88,15 @@
         .account button:hover {
             color: rgb(167, 167, 167);
         }
-        
+
+        .profile-image-top {
+            width: 50px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-right: 100px;
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -113,15 +121,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'teachers' %}">Teachers</a>
                         </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'studentform' %}">Student Form</a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="{% url 'teacherform' %}">Teacher Form</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'studentform' %}">Student Form</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'teacherform' %}">Teacher Form</a>
+                        </li>
                         {% endif %}
                         <div class="account">
                             {% if user.is_authenticated %}
+                            <div class="profile-image-top">
+                                <img src="{{ request.user.profile.profile_image.url }}">
+                            </div>
                             <li>
                                 <form action="{% url 'logout' %}" method="post">
                                     {% csrf_token %}

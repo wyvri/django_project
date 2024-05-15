@@ -41,7 +41,7 @@ class Teacher(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
-    profile_image = models.ImageField(default="cat.png", null=True, blank=True)
+    profile_image = models.ImageField(default="cat.png", null=True)
 
-    def __str__(self):
-        return f"{self.user.username}"
+    #def __str__(self):
+        #return f"{self.user.username}"
