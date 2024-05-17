@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load custom_filters %}
+
+{% if user.is_authenticated %}
+<style>
+    .profile-picture {
+        width: 150px;
+        margin: 10px;
+        border: 5px;
+    }
+
+    .profileform {
+        margin: 10px;
+    }
+</style>
+<div class="top">
+    <h1>Profile</h1>
+</div>
+<img class="profile-picture" src="{{ request.user.profile.profile_image.url }}">
+<form method="post" action="" enctype="multipart/form-data" id="profileform">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary" value="Submit" id="submitbutton">
+        Submit Image
+    </button>
+</form>
+<table class="table table-striped">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Last Login
+        </th>
+        <th>
+            Groups
+        </th>
+    </tr>
+    <tr>
+        <td>
+            {{ user.first_name }}
+        </td>
+        <td>
+            {{ user.last_name }}
+        </td>
+        <td>
+            {{ user.username }}
+        </td>
+        <td>
+            {{ user.email }}
+        </td>
+        <td>
+            {{ user.last_login }}
+        </td>
+        <td>
+            {% for group in groups %}
+            {{ group.name }}
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+
+{% else %}
+
+<p>Please log in.</p>
+<a href="{% url 'login' %}">Log in here</a>
+
+{% endif %}
+
+{% endblock %}

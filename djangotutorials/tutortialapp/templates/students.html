@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load custom_filters %}
+{% if user.is_authenticated %}
+{% if request.user|has_group:"Teachers" %}
+<div class="top">
+    <h1>Students</h1>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Grade</th>
+    </thead>
+
+    {% for i in students %}
+        <tr>
+            <td>{{ i.last_name }}</td>
+            <td>{{ i.first_name }}</td>
+            <td>{{ i.middle_name }}</td>
+            <td>{{ i.grade }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% else %}
+
+<p>Please log in.</p>
+<a href="{% url 'login' %}">Log in here</a>
+
+{% endif %}
+{% endblock %}

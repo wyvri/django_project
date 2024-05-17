@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en-us">
+
+{% block title %}Home!{% endblock %}
+
+<body>
+  {% block content %}
+
+  {% load static %}
+
+  {% load custom_filters %}
+  <style>
+    .card-things-1 {
+      margin: 50px;
+      padding: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    .card-things-1 img {
+      width: 150px;
+    }
+
+    .columnification {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rowification {
+      display: flex;
+      flex-direction: row;
+      text-align: left;
+    }
+
+    .top img {
+      width: 150px;
+    }
+
+    svg {
+      color: rgb(245, 2, 237);
+      height: 200px;
+      width: 200px;
+    }
+
+    h4 {
+      text-align: center;
+    }
+
+    .card-body {
+      text-align: center;
+    }
+  </style>
+  <div class="top">
+    <h1>
+      <img src="{% static 'img/house.png' %}">
+    </h1>
+  </div>
+  {% if user.is_authenticated %}
+  <p>Welcome, {{user.username}}</p>
+  {% endif %}
+  <div class="card-things-1">
+    <div class="columnification">
+      <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">Student List</h4>
+        </div>
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list"
+            viewBox="0 0 16 16">
+            <path
+              d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+            <path
+              d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+          </svg>
+          <a href="{% url 'students' %}"><button type="button" class="w-100 btn btn-lg btn-primary">Click
+              Here</button></a>
+        </div>
+      </div>
+      <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">Teacher List</h4>
+        </div>
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list"
+            viewBox="0 0 16 16">
+            <path
+              d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+            <path
+              d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+          </svg>
+          <a href="{% url 'teachers' %}"><button type="button" class="w-100 btn btn-lg btn-primary">Click
+              Here</button></a>
+        </div>
+      </div>
+    </div>
+    {% if request.user|has_group:"Teachers" %}
+    <div class="columnification">
+      <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">Student Form</h4>
+        </div>
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-card-checklist" viewBox="0 0 16 16">
+            <path
+              d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+            <path
+              d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
+          </svg>
+          <a href="{% url 'studentform' %}"><button type="button" class="w-100 btn btn-lg btn-primary">Click
+              Here</button></a>
+        </div>
+      </div>
+      <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">Teacher Form</h4>
+        </div>
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-card-checklist" viewBox="0 0 16 16">
+            <path
+              d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+            <path
+              d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
+          </svg>
+          <a href="{% url 'teacherform' %}"><button type="button" class="w-100 btn btn-lg btn-primary">Click
+              Here</button></a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="columnification">
+      <div>
+        <h4 class="fst-italic">Announcements</h4>
+        <ul class="list-unstyled">
+          <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+              href="#">
+              <img src="{% static 'img/elcathasfallen.png' %}">
+              <div class="col-lg-8">
+                <h6 class="mb-0">Local Library Cat Has Been Defeated!</h6>
+                <small class="text-body-secondary">January 15, 2024</small>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+              href="#">
+              <img src="{% static 'img/elcat.png' %}">
+              <div class="col-lg-8">
+                <h6 class="mb-0">Many Stray Cats Assemble For Group Yoga</h6>
+                <small class="text-body-secondary">January 14, 2024</small>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+              href="#">
+              <img src="{% static 'img/manycats.png' %}">
+              <div class="col-lg-8">
+                <h6 class="mb-0">Emergency: Local Library Cat Takes Over Small Town!</h6>
+                <small class="text-body-secondary">January 13, 2024</small>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="rowification">
+      <div class="container my-5">
+        <div class="p-5 text bg-body-tertiary rounded-3">
+          <h1>Find The Cat For You!</h1>
+          <p class="lead">
+            Adopt a cat today from Local Pet Agency!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+
+</html>
